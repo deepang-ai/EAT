@@ -1,17 +1,18 @@
 # Endoscopic Adaptive Transformer (EAT) for Enhanced Polyp Segmentation
 
 > More details of this project will be released soon.
+
 [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/eat-yellow)](https://huggingface.co/deepang/eat)&nbsp;
 
-[CVCliniDB weights & logs](https://huggingface.co/deepang/eat/tree/main/CVCliniDB)
+CVCliniDB weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/CVCliniDB-yellow)](https://huggingface.co/deepang/eat/tree/main/CVCliniDB)&nbsp;
 
-[EDD2020 weights & logs](https://huggingface.co/deepang/eat/tree/main/EDD2020)
+Kvasir-SEG weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/Kvasir--SEG-yellow)](https://huggingface.co/deepang/eat/tree/main/Kvasir)
 
-[Kvasir weights & logs](https://huggingface.co/deepang/eat/tree/main/Kvasir)
+EDD2020 weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/EDD2020-yellow)](https://huggingface.co/deepang/eat/tree/main/EDD2020)
 
-[POLYPGEN weights & logs](https://huggingface.co/deepang/eat/tree/main/POLYPGEN)
+POLYPGEN weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/POLYPGEN-yellow)](https://huggingface.co/deepang/eat/tree/main/POLYPGEN)
 
-[SUN-SEG weights & logs](https://huggingface.co/deepang/eat/tree/main/SUN-SEG)
+SUN-SEG weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/SUN--SEG-yellow)](https://huggingface.co/deepang/eat/tree/main/SUN-SEG)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ---
