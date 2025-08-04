@@ -14,7 +14,7 @@ POLYPGEN weights & logs: [![huggingface weights](https://img.shields.io/badge/%F
 
 SUN-SEG weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/SUN--SEG-yellow)](https://huggingface.co/deepang/eat/tree/main/SUN-SEG)
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ---
 
 ## 🔍 Main Contributions  
