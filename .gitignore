@@ -1,2 +1,26 @@
-.DS_Store
+/logs/
+/visualization/
+/MyTest/
 
+# Keep these directories in the repo, but ignore their generated content.
+/model_store/**
+!/model_store/Placeholder.txt
+!/model_store/.gitkeep
+
+# Keep key logs in the repo (requested), so no ignore rules here.
+
+__pycache__/
+**/__pycache__/
+.idea/
+.pytest_cache/
+*.log
+
+DCNv4_op/build/
+DCNv4_op/DCNv4.egg-info/
+DCNv4_op/**/__pycache__/
+DCNv4_op/**/*.so
+
+# Optional pretrained weights directory (keep placeholder, ignore actual weights)
+pretrained/**
+!pretrained/Placeholder.txt
+!pretrained/.gitkeep

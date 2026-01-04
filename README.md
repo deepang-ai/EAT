@@ -1,6 +1,6 @@
 # Endoscopic Adaptive Transformer (EAT) for Enhanced Polyp Segmentation
 
-> More details of this project will be released soon.
+This repository provides training and evaluation code for **EAT**.
 
 [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/eat-yellow)](https://huggingface.co/deepang/eat)&nbsp;
 
@@ -13,6 +13,104 @@ EDD2020 weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0
 POLYPGEN weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/POLYPGEN-yellow)](https://huggingface.co/deepang/eat/tree/main/POLYPGEN)
 
 SUN-SEG weights & logs: [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/SUN--SEG-yellow)](https://huggingface.co/deepang/eat/tree/main/SUN-SEG)
+
+
+## 🧩 Requirements
+- A Python environment with dependencies from `requirements.txt`
+- A CUDA-capable GPU and a CUDA-enabled PyTorch build
+- CUDA toolkit available to compile `DCNv4_op/` (required)
+- On Windows: run `train.sh/verify.sh` via WSL or translate the commands to `torchrun` in your shell
+
+
+---
+
+## 🚀 Quick Start
+
+### 1) Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2) Build DCNv4 (Required)
+EAT depends on **DCNv4**. The source code is provided in `DCNv4_op/` and must be compiled/installed with CUDA.
+
+Build & install:
+```bash
+cd DCNv4_op
+bash make.sh
+```
+
+Editable install:
+```bash
+cd DCNv4_op
+pip install -v -e .
+```
+
+Note: `DCNv4_op/setup.py` requires CUDA and will raise an error if CUDA is not available.
+
+### 3) (Optional) Pretrained backbone weights
+`config.yml` points to an optional backbone weight file:
+```text
+./pretrained/pvt_v2_b2.pth
+```
+If the file is missing, the backbone will be initialized without loading pretrained weights.
+
+### 4) Configure dataset paths
+Set `trainer.dataset_choose` and the corresponding `dataset.<name>.data_root` in `config.yml`.
+
+Supported datasets and their folder conventions:
+
+- **CVC-ClinicDB** (`trainer.dataset_choose: CVC_ClinicDB`)
+	- Loader: `src/CVCLoader.py`
+	- `data_root` should contain:
+		- `Original/` (images)
+		- `GroundTruth/` (masks)
+	- Note: please rename `Ground Truth` -> `GroundTruth` (remove spaces) if needed.
+
+- **Kvasir-SEG** (`trainer.dataset_choose: Kvasir_SEG`)
+	- Loader: `src/CVCLoader.py`
+	- `data_root` should contain:
+		- `images/`
+		- `masks/`
+
+- **EDD2020 (Seg)** (`trainer.dataset_choose: EDD_seg`)
+	- Loader: `src/EDDLoader.py`
+	- `data_root` should contain:
+		- `originalImages/` (images)
+		- `masks/` (multi-class masks)
+	- Mask naming: for an image `XXX.jpg/png`, masks are looked up as `masks/XXX_<class>.tif`, where `<class>` is one of `BE`, `cancer`, `HGD`, `polyp`, `suspicious`.
+
+- **PolypGen** (`trainer.dataset_choose: PolypGen`)
+	- Loader: `src/PolypGenLoder.py`
+	- `data_root` is expected to contain multiple subfolders (e.g., different centers). For each subfolder:
+		- `images/`
+		- `masks/`
+	- Mask naming: for `images/NAME.<ext>`, the loader expects `masks/NAME_mask.jpg`.
+
+- **SUN-SEG** (`trainer.dataset_choose: Sun_seg`)
+	- Loader: `src/SunsegLoader.py`
+	- `data_root` should contain:
+		- `TrainDataset/Frame/<video_or_folder>/*` and `TrainDataset/GT/<video_or_folder>/*.png`
+		- `TestHardDataset/Unseen/Frame/<video_or_folder>/*` and `TestHardDataset/Unseen/GT/<video_or_folder>/*.png`
+
+### 5) Train / Evaluate
+Single GPU:
+```bash
+python train.py
+python verify.py
+```
+
+Multi-GPU (torchrun):
+```bash
+torchrun --nproc_per_node 2 --master_port 29400 train.py
+torchrun --nproc_per_node 4 --master_port 29400 verify.py
+```
+
+Example bash scripts (set env vars like `CUDA_VISIBLE_DEVICES`):
+```bash
+bash train.sh
+bash verify.sh
+```
 
 
 ---

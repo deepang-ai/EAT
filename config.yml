@@ -1,0 +1,92 @@
+trainer:
+  num_epochs: 4000
+  warmup: 2
+  train_ratio: 0.8
+  lr: 0.001
+  min_lr: 0.0000001
+  optimizer: adamw
+  weight_decay: 0.05
+  weight_decay_end: 0.04
+  pred_ratio_var: 0
+  resume: False
+  dataset_choose: CVC_ClinicDB
+#  dataset_choose: Kvasir_SEG
+#  dataset_choose: EDD_seg
+#  dataset_choose: PolypGen
+#  dataset_choose: Sun_seg
+
+
+dataset:
+  CVC_ClinicDB:
+    data_root: /mnt/d/dataset/CVC-ClinicDB/
+    batch_size: 8
+    num_workers: 4
+    image_size: 352
+    train_ratio: 0.8
+  Kvasir_SEG:
+    data_root: /mnt/d/dataset/Kvasir-SEG/
+    batch_size: 8
+    num_workers: 4
+    image_size: 352
+    train_ratio: 0.8
+  EDD_seg:
+    data_root: /dataset/cv/seg/EDD2020/
+    batch_size: 8
+    num_workers: 4
+    image_size: 352
+    train_ratio: 0.8
+    image_mean: 0.5
+    image_std: 0.5
+  PolypGen:
+    data_root: /mnt/d/dataset/PolypGen
+    batch_size: 8
+    num_workers: 4
+    image_size: 352
+    train_ratio: 0.8
+    image_mean: 0.5
+    image_std: 0.5
+  Sun_seg:
+    data_root: /mnt/d/dataset/SUN-SEG
+    batch_size: 8
+    num_workers: 4
+    image_size: 352
+    train_ratio: 0.8
+    image_mean: 0.5
+    image_std: 0.5
+
+finetune:
+  checkpoint: EAT
+  model_choose: EAT
+
+visualization:
+  img_path: "./visualization/img/"
+  mask_path: "./visualization/label/"
+  visualization_path: "./visualization/output/"
+
+
+models:
+  eat:
+    branch1:
+      in_channels: 3
+      out_channels: 1
+      dims: [ 64, 128, 320, 512 ]
+      out_dim: 32
+      kernel_size: 3
+      mlp_ratio: 4
+      model_dir: ./pretrained/pvt_v2_b2.pth
+      gla_os: [3.0, 1.0]
+      L_feature_v4: True
+      L_feature_os: 1.0
+    branch5:
+      in_channels: 3
+      out_channels: 5
+      dims: [ 64, 128, 320, 512 ]
+      out_dim: 32
+      kernel_size: 3
+      mlp_ratio: 4
+      model_dir: ./pretrained/pvt_v2_b2.pth
+
+
+
+
+

@@ -1,0 +1,13 @@
+accelerate
+PyYAML
+easydict
+mmengine
+monai==1.2.0
+opencv-python==4.8.1.78
+timm==0.9.7
+objprint==0.2.3
+einops
+torch
+
+# Optional (only if you want FlashAttention acceleration and your CUDA/torch match):
+# flash-attn

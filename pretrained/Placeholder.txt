@@ -1,0 +1,2 @@
+Place optional pretrained backbone weights here, e.g. pvt_v2_b2.pth
+This repository ignores actual weight files by default.
