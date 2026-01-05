@@ -1,6 +1,6 @@
 # Endoscopic Adaptive Transformer (EAT) for Enhanced Polyp Segmentation
 
-This repository provides training and evaluation code for **EAT**.
+> 🎉This work is published in [IEEE Transactions on Medical Imaging](https://ieeexplore.ieee.org/document/11184616) (TMI) 2025.
 
 [![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-deepang/eat-yellow)](https://huggingface.co/deepang/eat)&nbsp;
 
@@ -217,3 +217,17 @@ Challenge: Large-scale colonoscopy polyp segmentation
 #### Multi-Target Segmentation  
 ![Fig11.png](figures/Fig11.png)
 ---
+
+## Citation
+
+If you find this repository useful, please cite:
+
+```bibtex
+@ARTICLE{pang2025endoscopic,
+  author={Pang, Yan and Long, Yucheng and Chen, Zibin and Hu, Ying and Chen, Hao and Wang, Qiong},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={Endoscopic Adaptive Transformer for Enhanced Polyp Segmentation in Endoscopic Imaging}, 
+  year={2025},
+  publisher={IEEE}
+}
+```
