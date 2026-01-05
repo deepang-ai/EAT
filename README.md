@@ -1,4 +1,4 @@
-# Endoscopic Adaptive Transformer (EAT) for Enhanced Polyp Segmentation
+# Endoscopic Adaptive Transformer(EAT) for Enhanced Polyp Segmentation in Endoscopic Imaging
 
 > 🎉This work is published in [IEEE Transactions on Medical Imaging](https://ieeexplore.ieee.org/document/11184616) (TMI) 2025.
 
